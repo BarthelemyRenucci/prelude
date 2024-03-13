@@ -83,5 +83,6 @@
 ;; Key-chord
 
 (key-chord-define-global "aa" 'ag)
-(key-chord-define-global "gg" 'avy-goto-line)
-(key-chord-define-global "bb" 'magit-blame-addition)
+(key-chord-define-global "jj" 'avy-goto-char-timer)
+(key-chord-define-global "kk" 'avy-goto-line)
+(key-chord-define-global "ii" 'magit-blame-addition)
