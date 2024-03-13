@@ -9,3 +9,7 @@
 (add-hook 'c-mode-common-hook
           (lambda () (setq indent-tabs-mode t)))
 
+;; Switch case offset
+(c-set-offset 'case-label '+)
+
+
