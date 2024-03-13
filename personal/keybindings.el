@@ -74,8 +74,14 @@
 
 (global-set-key (kbd "C-c g") (lambda () (interactive) (shell-command "git submodule update --init --recursive &")))
 
-(global-set-key (kbd "C-M-y") (lambda() (interactive) (browse-kill-ring)))
+;; (global-set-key (kbd "C-M-y") (lambda() (interactive) (browse-kill-ring)))
 
 (global-set-key (kbd "M-g M-g") 'avy-goto-line)
 
 (global-set-key (kbd "C-c v") 'avy-goto-char-timer)
+
+;; Key-chord
+
+(key-chord-define-global "aa" 'ag)
+(key-chord-define-global "gg" 'avy-goto-line)
+(key-chord-define-global "bb" 'magit-blame-addition)
