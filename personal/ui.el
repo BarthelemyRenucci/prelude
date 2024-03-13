@@ -12,8 +12,6 @@
 ;; Display time
 (display-time-mode 1)
 
-;; Disable whitespace
-(setq prelude-whitespace nil)
 
 ;; Add beacon
 (beacon-mode 1)
