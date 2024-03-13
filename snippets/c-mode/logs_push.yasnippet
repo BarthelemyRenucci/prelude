@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: logs_push_logs
+# key: lpl
+# --
+#ifdef CONFIG_MODULE_LOGS
+logs_push_logs_curr_time(LOGS_$1, LOGS_$1_MSG_$2, $0);
+#endif /* CONFIG_MODULE_LOGS */
