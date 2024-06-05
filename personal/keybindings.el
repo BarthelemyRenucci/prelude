@@ -86,3 +86,4 @@
 (key-chord-define-global "jj" 'avy-goto-char-timer)
 (key-chord-define-global "kk" 'avy-goto-line)
 (key-chord-define-global "ii" 'magit-blame-addition)
+(key-chord-define-global "qq" 'code-review-forge-pr-at-point)
