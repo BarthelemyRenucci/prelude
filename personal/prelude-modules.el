@@ -38,7 +38,7 @@
 ;; (require 'prelude-haskell)
 ;;(require 'prelude-js)
 ;; (require 'prelude-latex)
-;;(require 'prelude-lisp) ;; Common setup for Lisp-like languages
+(require 'prelude-lisp) ;; Common setup for Lisp-like languages
 (require 'prelude-lsp) ;; Base setup for the Language Server Protocol
 ;; (require 'prelude-lua)
 ;; (require 'prelude-ocaml)
