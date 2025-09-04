@@ -11,5 +11,3 @@
 
 ;; Switch case offset
 (c-set-offset 'case-label '+)
-
-

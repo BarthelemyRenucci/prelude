@@ -5,6 +5,7 @@
 (setq magit-section-initial-visibility-alist '((unpushed . show) (unstaged . show) (staged . show) (untracked . hide) (stashes . hide)))
 
 ;; Magit d for both ediff
+
 (defun ediff-copy-both-to-C ()
   (interactive)
   (ediff-copy-diff ediff-current-difference nil 'C nil

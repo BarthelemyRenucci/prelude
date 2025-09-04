@@ -1,74 +1,80 @@
 ;;; Keybindings
 
 ;; Magit
-(global-set-key (kbd "C-x g") 'magit-status)
+(keymap-global-set "C-x g" 'magit-status)
 
 ;; Some custom project jump
-(global-set-key (kbd "C-x ²")
-                (lambda()
-                  (interactive)
-                  (dired "~/.emacs.d")))
+(keymap-global-set "C-x ²"
+                   (lambda()
+                     (interactive)
+                     (dired "~/.emacs.d")))
 
-(global-set-key (kbd "C-x C-²")
-                (lambda()
-                  (interactive)
-                  (dired "~/misc")))
+(keymap-global-set "C-x C-²"
+                   (lambda()
+                     (interactive)
+                     (dired "~/misc")))
 
-(global-set-key (kbd "C-x &")
-                (lambda()
-                  (interactive)
-                  (dired "~/birota-repo/embedded-firmware")))
+(keymap-global-set "C-x &"
+                   (lambda()
+                     (interactive)
+                     (dired "~/birota-repo/embedded-firmware")))
 
-(global-set-key (kbd "C-x C-&")
-                (lambda()
-                  (interactive)
-                  (dired "~/birota-repo")))
+(keymap-global-set "C-x C-&"
+                   (lambda()
+                     (interactive)
+                     (dired "~/birota-repo")))
 
-(global-set-key (kbd "C-x é")
-                (lambda()
-                  (interactive)
-                  (dired "~/birota-repo/embedded-firmware/modules")))
+(keymap-global-set "C-x é"
+                   (lambda()
+                     (interactive)
+                     (dired "~/birota-repo/embedded-firmware/modules")))
 
-(global-set-key (kbd "C-x \"")
-                (lambda()
-                  (interactive)
-                  (dired "~/birota-repo/embedded-firmware/project")))
+(keymap-global-set "C-x \""
+                   (lambda()
+                     (interactive)
+                     (dired "~/birota-repo/embedded-firmware/project")))
 
-(global-set-key (kbd "C-x C-\"")
-                (lambda()
-                  (interactive)
-                  (dired "~/birota-repo/embedded-firmware/project/edock01-main")))
+(keymap-global-set "C-x C-\""
+                   (lambda()
+                     (interactive)
+                     (dired "~/birota-repo/embedded-firmware/project/edock01-main")))
 
 
-(global-set-key (kbd "C-x '")
-                (lambda()
-                  (interactive)
-                  (dired "~/birota-repo/embedded-firmware/modules/includes")))
+(keymap-global-set "C-x '"
+                   (lambda()
+                     (interactive)
+                     (dired "~/birota-repo/embedded-firmware/modules/includes")))
 
-(global-set-key (kbd "C-x (")
-                (lambda()
-                  (interactive)
-                  (dired "~/birota-repo/embedded-firmware/tools")))
+(keymap-global-set "C-x ("
+                   (lambda()
+                     (interactive)
+                     (dired "~/birota-repo/embedded-firmware/tools")))
 
-(global-set-key (kbd "C-x C-(")
-                (lambda()
-                  (interactive)
-                  (dired "/home/bart/birota-repo/embedded-rd-logs-viewer/")))
+(keymap-global-set "C-x C-("
+                   (lambda()
+                     (interactive)
+                     (dired "/home/bart/birota-repo/embedded-traces-post-processing/scripts")))
 
-(global-set-key (kbd "C-x -")
-                (lambda()
-                  (interactive)
-                  (dired "~/birota-repo/embedded-firmware/external")))
+(keymap-global-set "C-x -"
+                   (lambda()
+                     (interactive)
+                     (dired "~/birota-repo/embedded-firmware/external")))
 
-(global-set-key (kbd "C-x è")
-                (lambda()
-                  (interactive)
-                  (find-file "~/.organistation.org")))
+(keymap-global-set "C-x è"
+                   (lambda()
+                     (interactive)
+                     (find-file "~/.organistation.org")))
 
-(global-set-key (kbd "C-x C-è")
-                (lambda()
-                  (interactive)
-                  (find-file "~/.scratch.txt")))
+(keymap-global-set "C-x C-è"
+                   (lambda()
+                     (interactive)
+                     (find-file "~/.scratch.txt")))
+
+(keymap-global-set "C-x M-r"
+                   (lambda()
+                     (interactive)
+                     (shell-command "/home/bart/birota-repo/embedded-firmware/tools/changelog/resolve_conflict.sh origin/master 1")))
+
 
 (global-set-key (kbd "M-n") 'swiper-thing-at-point)
 
