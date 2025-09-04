@@ -1,0 +1,28 @@
+# -*- mode: snippet -*-
+# name: create task
+# key: task
+# --
+
+#define ${1:$(upcase yas-text)}_TASK_SIZE            ($2)
+#define ${1:$(upcase yas-text)}_TASK_PRIO            ($4)
+
+TaskHandle_t task;
+StaticTask_t task_buffer;
+StackType_t task_stack[${1:$(upcase yas-text)}_TASK_SIZE];
+
+static void ${1:NAME}_task(void * pvParameters) {
+       while(1) {
+
+       }
+}
+
+$3.task = xTaskCreateStatic($1_task,
+          "$1_Task",
+          ${1:$(upcase yas-text)}_TASK_SIZE,
+          NULL,
+          ${1:$(upcase yas-text)}_TASK_PRIO,
+          $3.task_stack,
+          &$3.task_buffer);
+
+
+$0
