@@ -34,3 +34,6 @@ gotools/
 eln-cache/
 irony
 anaconda-mode
+.aider*
+forge-database*
+emojis
