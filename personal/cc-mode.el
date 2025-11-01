@@ -1,8 +1,6 @@
 ;;; C mode
 
-(prelude-require-packages '(smart-tabs-mode))
 
-(smart-tabs-insinuate 'c)
 (setq-default tab-width 4) ; or any other preferred value
 (setq cua-auto-tabify-rectangles nil)
 
