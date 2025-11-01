@@ -1,7 +1,7 @@
 ;; This file setup a minimalist UI
 
 
-(prelude-require-packages '(zone nyan-mode beacon))
+(prelude-require-packages '(zone nyan-mode beacon ligature))
 
 ;; Increase line limit
 (setq whitespace-line-column 250) ;; limit line length

@@ -1,7 +1,7 @@
 ;;; Modeline file
 
 
-(prelude-require-packages '(doom-modeline nerd-icons))
+(prelude-require-packages '(doom-modeline nerd-icons nerd-icons-dired))
 
 (require 'doom-modeline)
 (doom-modeline-mode 1)
@@ -11,3 +11,6 @@
 (setq doom-modeline-lsp nil)
 (setq doom-modeline-gnus nil)
 (setq doom-modeline-irc nil)
+
+(require 'nerd-icons-dired)
+(add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
