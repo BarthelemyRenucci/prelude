@@ -32,6 +32,7 @@
 
 (require 'prelude-lisp)
 (require 'crux)
+(require 'bytecomp)
 
 (prelude-require-packages '(elisp-slime-nav rainbow-mode))
 
@@ -39,10 +40,15 @@
   "Recompile your elc when saving an elisp file."
   (add-hook 'after-save-hook
             (lambda ()
-              (when (and
-                     (string-prefix-p prelude-dir (file-truename buffer-file-name))
-                     (file-exists-p (byte-compile-dest-file buffer-file-name)))
-                (emacs-lisp-byte-compile)))
+              (when buffer-file-name
+                (let ((file-name (file-truename buffer-file-name))
+                      (elc-file (byte-compile-dest-file buffer-file-name)))
+                  (when (and (boundp 'prelude-dir)
+                             (string-prefix-p prelude-dir file-name)
+                             elc-file
+                             (file-exists-p elc-file))
+                    (message "Recompiling %s..." elc-file)
+                    (emacs-lisp-byte-compile)))))
             nil
             t))
 
