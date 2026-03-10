@@ -41,3 +41,12 @@
 (defadvice align-regexp (around align-regexp-with-spaces activate)
   (let ((indent-tabs-mode nil))
     ad-do-it))
+
+;; Disable autosave in specific repository
+(defun my-disable-autosave-in-birota-repo ()
+  (when (and buffer-file-name
+             (file-in-directory-p buffer-file-name
+                                  (expand-file-name "~/birota-repo/mounted_repo/")))
+    (auto-save-mode -1)))
+
+(add-hook 'find-file-hook 'my-disable-autosave-in-birota-repo)
