@@ -1,4 +1,7 @@
-(require 'sql-indent)
+;; SQL
 
-(add-hook 'sql-mode-hook
-          (lambda () (setq sqlind-minor-mode t)))
+(prelude-require-package 'sqlformat)
+
+(setq sqlformat-command 'pgformatter)
+
+(add-hook 'sql-mode-hook 'sqlformat-on-save-mode)
