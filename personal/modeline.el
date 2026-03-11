@@ -1,16 +1,16 @@
 ;;; Modeline file
 
-
 (prelude-require-packages '(doom-modeline nerd-icons nerd-icons-dired))
 
-(require 'doom-modeline)
-(doom-modeline-mode 1)
-(setq doom-modeline-column-zero-based nil)
-(setq doom-modeline-buffer-encoding nil)
-(setq doom-modeline-workspace-name nil)
-(setq doom-modeline-lsp nil)
-(setq doom-modeline-gnus nil)
-(setq doom-modeline-irc nil)
+(use-package doom-modeline
+  :hook (after-init . doom-modeline-mode)
+  :custom
+  (doom-modeline-column-zero-based nil)
+  (doom-modeline-buffer-encoding nil)
+  (doom-modeline-workspace-name nil)
+  (doom-modeline-lsp nil)
+  (doom-modeline-gnus nil)
+  (doom-modeline-irc nil))
 
-(require 'nerd-icons-dired)
-(add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
+(use-package nerd-icons-dired
+  :hook (dired-mode . nerd-icons-dired-mode))

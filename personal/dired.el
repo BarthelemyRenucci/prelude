@@ -5,7 +5,7 @@
   (display-line-numbers-mode -1)
   (local-set-key  "/" 'dired-isearch-filenames)
   (local-set-key  "e" 'my-ediff-files))
-(add-hook 'dired-mode-hook 'dired-mode-hook-setup)
+(add-hook 'dired-mode-hook #'dired-mode-hook-setup)
 
 ;; when there is two dired buffer, Emacs will select another buffer
 ;; as target buffer (target for copying files, for example).

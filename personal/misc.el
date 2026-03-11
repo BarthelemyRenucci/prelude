@@ -7,40 +7,22 @@
 (setq xref-show-definitions-function #'xref-show-definitions-completing-read)
 (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 
-;; Makefile mode for custom extensions
-(add-to-list 'auto-mode-alist '("\\Makefile\.[inc]?[docker]?[gen]?[release]?\\'!" . makefile-mode))
-
-;; {{ Makefile mode for custom makefile extensions
-(setq auto-mode-alist
-      (cons '("\\Makefile\\'" . makefile-mode) auto-mode-alist))
-(setq auto-mode-alist
-      (cons '("\\.inc\\'"     . makefile-mode) auto-mode-alist))
-(setq auto-mode-alist
-      (cons '("\\.docker\\'"  . makefile-mode) auto-mode-alist))
-(setq auto-mode-alist
-      (cons '("\\.release\\'" . makefile-mode) auto-mode-alist))
-(setq auto-mode-alist
-      (cons '("\\.gen\\'"     . makefile-mode) auto-mode-alist))
-(setq auto-mode-alist
-      (cons '("\\.remote\\'"  . makefile-mode) auto-mode-alist))
-(setq auto-mode-alist
-      (cons '("\\.jlink\\'"   . makefile-mode) auto-mode-alist))
-(setq auto-mode-alist
-      (cons '("\\.proto\\'"   . protobuf-mode) auto-mode-alist))
-(setq auto-mode-alist
-      (cons '("\\.changelog\\'"   . protobuf-mode) auto-mode-alist))
-(setq auto-mode-alist
-      (cons '("\\.remote\\'"   . protobuf-mode) auto-mode-alist))
-;; }}
-
-
-;; Remove tabs in whitespace
-(setq whitespace-tab nil)
+;; Makefile mode for custom makefile extensions
+(add-to-list 'auto-mode-alist '("\\Makefile\\'" . makefile-mode))
+(add-to-list 'auto-mode-alist '("\\.inc\\'"     . makefile-mode))
+(add-to-list 'auto-mode-alist '("\\.docker\\'"  . makefile-mode))
+(add-to-list 'auto-mode-alist '("\\.release\\'" . makefile-mode))
+(add-to-list 'auto-mode-alist '("\\.gen\\'"     . makefile-mode))
+(add-to-list 'auto-mode-alist '("\\.remote\\'"  . makefile-mode))
+(add-to-list 'auto-mode-alist '("\\.jlink\\'"   . makefile-mode))
+(add-to-list 'auto-mode-alist '("\\.proto\\'"      . protobuf-mode))
+(add-to-list 'auto-mode-alist '("\\.changelog\\'"  . protobuf-mode))
 
 ;; Only use space for align-regexp
-(defadvice align-regexp (around align-regexp-with-spaces activate)
-  (let ((indent-tabs-mode nil))
-    ad-do-it))
+(advice-add 'align-regexp :around
+            (lambda (orig-fn &rest args)
+              (let ((indent-tabs-mode nil))
+                (apply orig-fn args))))
 
 ;; Disable autosave in specific repository
 (defun my-disable-autosave-in-birota-repo ()

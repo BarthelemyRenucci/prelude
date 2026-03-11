@@ -76,15 +76,15 @@
                      (shell-command "/home/bart/birota-repo/embedded-firmware/tools/changelog/resolve_conflict.sh origin/master 1")))
 
 
-(global-set-key (kbd "M-n") 'swiper-thing-at-point)
+(keymap-global-set "M-n" 'swiper-thing-at-point)
 
-(global-set-key (kbd "C-c g") (lambda () (interactive) (shell-command "git submodule update --init --recursive &")))
+(keymap-global-set "C-c g" (lambda () (interactive) (shell-command "git submodule update --init --recursive &")))
 
-;; (global-set-key (kbd "C-M-y") (lambda() (interactive) (browse-kill-ring)))
+;; (keymap-global-set "C-M-y" (lambda() (interactive) (browse-kill-ring)))
 
-(global-set-key (kbd "M-g M-g") 'avy-goto-line)
+(keymap-global-set "M-g M-g" 'avy-goto-line)
 
-(global-set-key (kbd "C-c v") 'avy-goto-char-timer)
+(keymap-global-set "C-c v" 'avy-goto-char-timer)
 
 ;; Key-chord
 

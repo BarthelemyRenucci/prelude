@@ -27,8 +27,7 @@
 (zone-when-idle 120)
 
 ;; Set fullscreen mode
-(custom-set-variables
- '(initial-frame-alist (quote ((fullscreen . maximized)))))
+(setq initial-frame-alist '((fullscreen . maximized)))
 
 ;; Set transparency of emacs
 
@@ -38,12 +37,12 @@
 
 ;; Add nyan-cat
 (require 'nyan-mode)
-(setq nyan-mode t)
+(nyan-mode 1)
 (setq nyan-animate-nyancat t)
 (nyan-start-animation)
 
 ;; Enable ligature in major modes for Fira Code
-(add-to-list 'default-frame-alist '(font . "Fira Code Retina-11"))
+(add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font Ret-11"))
 
 ;; Enable the www ligature in every possible major mode
 (ligature-set-ligatures 't '("www"))

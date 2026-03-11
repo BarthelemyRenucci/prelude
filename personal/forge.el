@@ -1,3 +1,5 @@
+(prelude-require-package 'forge)
+
 (require 'forge)
 (require 'transient)
 

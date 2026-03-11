@@ -4,18 +4,15 @@
 ratio from `my-ratio-dict'.
 Always focus on bigger window."
   (interactive "P")
-  (let* (ratio-val)
-    (cond
-     (ratio
-      (setq ratio-val (cdr (assoc ratio my-ratio-dict)))
-      (split-window-horizontally (floor (/ (window-body-width)
-                                           (1+ ratio-val)))))
-     (t
-      (split-window-horizontally)))
+  (let* ((ratio-val (and ratio (cdr (assoc ratio my-ratio-dict)))))
+    (if ratio-val
+        (split-window-horizontally (floor (/ (window-body-width)
+                                             (1+ ratio-val))))
+      (split-window-horizontally))
     (set-window-buffer (next-window) (current-buffer))
-    (if (or (not ratio-val)
-            (>= ratio-val 1))
-        (windmove-right))))
+    (when (or (not ratio-val)
+              (>= ratio-val 1))
+      (windmove-right))))
 
 
 (defun my-split-window-vertically (&optional ratio)
@@ -24,20 +21,15 @@ Always focus on bigger window."
 ratio from `my-ratio-dict'.
 Always focus on bigger window."
   (interactive "P")
-  (let* (ratio-val)
-    (cond
-     (ratio
-      (setq ratio-val (cdr (assoc ratio my-ratio-dict)))
-      (split-window-vertically (floor (/ (window-body-height)
-                                         (1+ ratio-val)))))
-     (t
-      (split-window-vertically)))
-    ;; open another window with current-buffer
+  (let* ((ratio-val (and ratio (cdr (assoc ratio my-ratio-dict)))))
+    (if ratio-val
+        (split-window-vertically (floor (/ (window-body-height)
+                                           (1+ ratio-val))))
+      (split-window-vertically))
     (set-window-buffer (next-window) (current-buffer))
-    ;; move focus if new window bigger than current one
-    (if (or (not ratio-val)
-            (>= ratio-val 1))
-        (windmove-down))))
+    (when (or (not ratio-val)
+              (>= ratio-val 1))
+      (windmove-down))))
 
-(global-set-key (kbd "C-x 2") 'my-split-window-vertically)
-(global-set-key (kbd "C-x 3") 'my-split-window-horizontally)
+(keymap-global-set "C-x 2" #'my-split-window-vertically)
+(keymap-global-set "C-x 3" #'my-split-window-horizontally)
