@@ -2,6 +2,7 @@
 
 (defun dired-mode-hook-setup ()
   (dired-hide-details-mode 1)
+  (display-line-numbers-mode -1)
   (local-set-key  "/" 'dired-isearch-filenames)
   (local-set-key  "e" 'my-ediff-files))
 (add-hook 'dired-mode-hook 'dired-mode-hook-setup)
