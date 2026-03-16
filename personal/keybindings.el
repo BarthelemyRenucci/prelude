@@ -1,5 +1,16 @@
 ;;; Keybindings
 
+(defconst my/repo
+  (let ((bootstrap (expand-file-name "~/.bootstrap.zsh")))
+    (if (file-exists-p bootstrap)
+        (with-temp-buffer
+          (insert-file-contents bootstrap)
+          (if (re-search-forward "^export REPO_DIR=\"\\([^\"]+\\)\"" nil t)
+              (match-string 1)
+            (expand-file-name "~/birota-repo")))
+      (expand-file-name "~/birota-repo")))
+  "Path to the repo directory, read from ~/.bootstrap.zsh or fallback.")
+
 ;; Magit
 (keymap-global-set "C-x g" 'magit-status)
 
@@ -17,48 +28,48 @@
 (keymap-global-set "C-x &"
                    (lambda()
                      (interactive)
-                     (dired "~/birota-repo/embedded-firmware")))
+                     (dired (concat my/repo "/embedded-firmware"))))
 
 (keymap-global-set "C-x C-&"
                    (lambda()
                      (interactive)
-                     (dired "~/birota-repo")))
+                     (dired my/repo)))
 
 (keymap-global-set "C-x é"
                    (lambda()
                      (interactive)
-                     (dired "~/birota-repo/embedded-firmware/modules")))
+                     (dired (concat my/repo "/embedded-firmware/modules"))))
 
 (keymap-global-set "C-x \""
                    (lambda()
                      (interactive)
-                     (dired "~/birota-repo/embedded-firmware/project")))
+                     (dired (concat my/repo "/embedded-firmware/project"))))
 
 (keymap-global-set "C-x C-\""
                    (lambda()
                      (interactive)
-                     (dired "~/birota-repo/embedded-firmware/project/edock01-main")))
+                     (dired (concat my/repo "/embedded-firmware/project/edock01-main"))))
 
 
 (keymap-global-set "C-x '"
                    (lambda()
                      (interactive)
-                     (dired "~/birota-repo/embedded-firmware/modules/includes")))
+                     (dired (concat my/repo "/embedded-firmware/modules/includes"))))
 
 (keymap-global-set "C-x ("
                    (lambda()
                      (interactive)
-                     (dired "~/birota-repo/embedded-firmware/tools")))
+                     (dired (concat my/repo "/embedded-firmware/tools"))))
 
 (keymap-global-set "C-x C-("
                    (lambda()
                      (interactive)
-                     (dired "/home/bart/birota-repo/embedded-traces-post-processing/scripts")))
+                     (dired (concat my/repo "/embedded-traces-post-processing/scripts"))))
 
 (keymap-global-set "C-x -"
                    (lambda()
                      (interactive)
-                     (dired "~/birota-repo/embedded-firmware/external")))
+                     (dired (concat my/repo "/embedded-firmware/external"))))
 
 (keymap-global-set "C-x è"
                    (lambda()
@@ -73,7 +84,7 @@
 (keymap-global-set "C-x M-r"
                    (lambda()
                      (interactive)
-                     (shell-command "/home/bart/birota-repo/embedded-firmware/tools/changelog/resolve_conflict.sh origin/master 1")))
+                     (shell-command (concat my/repo "/embedded-firmware/tools/changelog/resolve_conflict.sh origin/master 1"))))
 
 
 (keymap-global-set "M-n" 'swiper-thing-at-point)
