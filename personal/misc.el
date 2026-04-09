@@ -17,6 +17,7 @@
 (add-to-list 'auto-mode-alist '("\\.jlink\\'"   . makefile-mode))
 (add-to-list 'auto-mode-alist '("\\.proto\\'"      . protobuf-mode))
 (add-to-list 'auto-mode-alist '("\\.changelog\\'"  . protobuf-mode))
+(add-to-list 'auto-mode-alist '("\\.envrc\\'"      . sh-mode))
 
 ;; Only use space for align-regexp
 (advice-add 'align-regexp :around
