@@ -5,12 +5,11 @@
 (require 'company)
 (require 'flycheck)
 
-;; Apheleia: ruff format-on-save, but don't auto-fix unused imports (F401)
 (use-package apheleia
   :demand t
   :config
   (setf (alist-get 'ruff apheleia-formatters)
-        '("sh" "-c" "uvx ruff check --fix --unfixable F401 --force-exclude --exit-zero --stdin-filename \"$1\" - | uvx ruff format --stdin-filename \"$1\" -" "--" filepath))
+        '("sh" "-c" "uvx ruff check --fix --force-exclude --exit-zero --stdin-filename \"$1\" - | uvx ruff format --stdin-filename \"$1\" -" "--" filepath))
   (setf (alist-get 'python-mode apheleia-mode-alist) 'ruff)
   (apheleia-global-mode +1))
 
