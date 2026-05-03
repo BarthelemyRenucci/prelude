@@ -3,6 +3,9 @@
 (prelude-require-package 'forge)
 
 (setq magit-section-initial-visibility-alist '((unpushed . show) (unstaged . show) (staged . show) (untracked . hide) (stashes . hide)))
+;; Only cache visibility for sections we want to hide by default, so manual
+;; collapse of unstaged/staged/unpushed sections doesn't persist across refreshes.
+(setq magit-section-cache-visibility '(untracked stashes))
 
 ;; Magit d for both ediff
 
