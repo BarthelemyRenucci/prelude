@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: print error in stderr with errno + context
+# key: ferrno
+# --
+
+fprintf(stderr, "$1: %s\n", strerror(errno));$0

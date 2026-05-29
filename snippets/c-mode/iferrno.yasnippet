@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: print error in stderr with errno + context
+# key: iferrno
+# --
+
+if(ret < 0) {
+	fprintf(stderr, "$1: %s\n", strerror(errno));
+	return -1;
+}
+$0

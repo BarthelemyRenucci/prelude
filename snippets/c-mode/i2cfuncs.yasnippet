@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: i2c functionality check
+# key: i2cfuncs
+# --
+
+unsigned long funcs;
+if (ioctl(fd, I2C_FUNCS, &funcs) < 0) {
+fprintf(stderr, "ioctl I2C_FUNCS: %s\n", strerror(errno));
+return -1;
+}
+if (!(funcs & $1)) {
+fprintf(stderr, "bus does not support $1\n");
+return -1;
+}
+$0

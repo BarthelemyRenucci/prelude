@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: i2c_rdwr atomic transaction
+# key: i2crdwr
+# --
+
+struct i2c_msg msgs[2] = {
+{ .addr = $1, .flags = 0,        .buf = &$2, .len = 1 },
+{ .addr = $1, .flags = I2C_M_RD, .buf = $3,  .len = $4 },
+};
+struct i2c_rdwr_ioctl_data data = { .msgs = msgs, .nmsgs = 2 };
+if (ioctl(fd, I2C_RDWR, &data) < 0) {
+fprintf(stderr, "ioctl I2C_RDWR: %s\n", strerror(errno));
+return -1;
+}
+$0

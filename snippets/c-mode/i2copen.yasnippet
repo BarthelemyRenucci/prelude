@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: i2c open + slave addr
+# key: i2copen
+# --
+
+int fd = open("$1", O_RDWR);
+if (fd < 0) {
+fprintf(stderr, "open %s: %s\n", "$1", strerror(errno));
+return -1;
+}
+if (ioctl(fd, I2C_SLAVE, $2) < 0) {
+fprintf(stderr, "ioctl I2C_SLAVE 0x%02x: %s\n", $2, strerror(errno));
+close(fd);
+return -1;
+}
+$0

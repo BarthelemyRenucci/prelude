@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: print error in stderr file
+# key: errif
+# --
+
+if(ret < 0) {
+	fprintf(stderr, "$1\n");
+	return -1;
+}
+$0
