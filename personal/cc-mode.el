@@ -12,3 +12,6 @@
 
 ;; Switch case offset
 (c-set-offset 'case-label '+)
+
+;; Open .h headers in c-mode by default (instead of c-or-c++-mode guessing)
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c-mode))
